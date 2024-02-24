@@ -1,0 +1,24 @@
+The experiments for evaluating the quality and consequences of prompt compression using LLMLingua are completed.
+Here is the technical summart of the results:
+
+1. Classification Performance
+Here we measure the impact of the compression of the retrieved context.
+We hold everything else constant, meaning, for the same prompt and the same choice of LLM, we check for rate of aggreement between the case of utilizing the context in its original form, vs. compressing it:
+Agreements: 55 out of 60 total cases
+Disagreements: 5 out of 60 total cases
+Agreement rate of 92%
+
+2. Reduction of Resources: Reduction of sent token translates directly to reduction of $ expenses
+Note that in our use-case the returned response is a single word, i.e. a single token, thus we don't need to evaluate the reduction of returned tokens, as they remain the same for both RAG cases:
+Non-compressed: Total tokens sent in 60 calls: 327654
+Compressed:     Total tokens sent in 60 calls: 26473
+Reduction in tokens: 92%
+Comressed Ratio: 12.50x
+
+3. Processing Times:
+Non-compressed: Total iteration time over 60 calls: 76
+Compressed:     Total iteration time over 60 calls: 839
+
+4. Final Conclusion
+Under the current choice of setting, hyperparametes, embeddings, and LLM,
+The conclusion is:
